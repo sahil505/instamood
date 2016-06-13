@@ -1,1 +1,63 @@
 /*you fill this in*/
+#caption_0{
+	margin-top: 100px;
+}
+body{
+	background-color: #FFF7EF;
+}
+#stats1{
+	text-align: center;
+	font-family: cursive;
+	font-stretch: ultra-expanded;
+	font-weight: bold;
+	font-size: 1.5em;
+	color:  #6B824A;
+}
+#stats2{
+	text-align: center;
+	font-family: cursive;
+	font-stretch: ultra-expanded;
+	font-weight: bold;
+	font-size: 1.5em;
+	color: #6B824A;
+}
+#stats3{
+	text-align: center;
+	font-family: cursive;
+	font-stretch: ultra-expanded;
+	font-weight: bold;
+	font-size: 1.5em;
+	color: #6B824A;
+}
+#stats4{
+	text-align: center;
+	font-family: cursive;
+	font-stretch: ultra-expanded;
+	font-weight: bold;
+	font-size: 1.5em;
+	color: #6B824A;
+}
+#stats5{
+	text-align: center;
+	font-family: cursive;
+	font-stretch: ultra-expanded;
+	font-weight: bold;
+	font-size: 1.5em;
+	color: #6B824A;
+}
+#images{
+	font-size: 20px;
+	font-family: Courier;
+	margin-top: 40px;
+	padding-bottom:50px;
+	color: #003366;
+	font-weight: 600;
+	text-align: center;
+	margin-right: -110px;
+
+}
+#images:hover{
+	-webkit-filter: brightness(115%);
+	border: 5px solid #003366;
+
+}

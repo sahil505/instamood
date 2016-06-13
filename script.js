@@ -23,5 +23,62 @@ $(document).ready(function() {
 
 function handleResponse(response) {
   console.log(response);
-  // add stuff here!
+  var user_likes = 0;
+  var total_likes = 0;
+  var total_caption_length = 0;
+  var total_hashTags = 0;
+  var dayList = [];
+  var daySet = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  for (var i=0; i<response.data.length; i++) {
+    if(response.data[i].user.user_has_liked === true){
+      user_likes += 1;
+    }
+    if(response.data[i].likes.count !== null){
+      total_likes += response.data[i].likes.count;
+    }
+    if(response.data[i].caption.text !== null){
+      total_caption_length += response.data[i].caption.text.length;
+    }
+    for(var j=0; j<response.data[i].caption.text.length; j++){
+      if(response.data[i].caption.text[j] === "#"){
+        total_hashTags += 1;
+      }
+    }
+    var date = new Date(response.data[i].created_time * 1000);
+    var day = date.getDay();
+    dayList.push(day);
+  }
+ var mode = function mode(arr) {
+   var numMapping = {};
+   var greatestFreq = 0;
+   var mode;
+   arr.forEach(function findMode(number) {
+       numMapping[number] = (numMapping[number] || 0) + 1;
+
+       if (greatestFreq < numMapping[number]) {
+           greatestFreq = numMapping[number];
+           mode = number;
+       }
+   });
+   return +mode;
+ }
+  var daymode = mode(dayList);
+  var percentage = (user_likes/response.data.length)*100;
+  var average_likes = total_likes/response.data.length;
+  var average_caption_length = total_caption_length/response.data.length;
+  var average_hashTags = total_hashTags/response.data.length;
+
+  $("#stats1").html("Ego Score : " + percentage);
+  $("#stats2").html("Popularity : " + average_likes);
+  $("#stats3").html("Active Day : " + daySet[daymode]);
+  $("#stats4").html("Brevity : " + average_caption_length);
+  $("#stats5").html("Visibility : " + average_hashTags);
+  for (var i=0; i<response.data.length; i++) {
+   $("#images").append("<div></div>",'<img src=' + response.data[i].images.standard_resolution.url + '>');
+   $("#images").append("<div></div>",'<br>');
+   $("#images").append("<div></div>",response.data[i].caption.text);
+   $("#images").append("<div></div>",'<br>');
+   $("#images").append("<div></div>",'<br>');
+   
+ }
 }
