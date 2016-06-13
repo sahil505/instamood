@@ -59,5 +59,22 @@ body{
 #images:hover{
 	-webkit-filter: brightness(115%);
 	border: 5px solid #003366;
+	color:red;
+	font-weight: bold;
 
+}
+#stats1:hover{
+	color: #FFC3CE;
+}
+#stats2:hover{
+	color: #FFC3CE;
+}
+#stats3:hover{
+	color: #FFC3CE;
+}
+#stats4:hover{
+	color: #FFC3CE;
+}
+#stats5:hover{
+	color: #FFC3CE;
 }
