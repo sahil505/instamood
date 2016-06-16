@@ -1,9 +1,8 @@
-/*you fill this in*/
-#caption_0{
-	margin-top: 100px;
-}
 body{
 	background-color: #FFF7EF;
+}
+h1{
+	text-align: center;
 }
 #stats1{
 	text-align: center;
@@ -45,6 +44,14 @@ body{
 	font-size: 1.5em;
 	color: #6B824A;
 }
+#stats6{
+	text-align: center;
+	font-family: cursive;
+	font-stretch: ultra-expanded;
+	font-weight: bold;
+	font-size: 1.5em;
+	color: #008080;
+}
 #images{
 	font-size: 20px;
 	font-family: Courier;
@@ -61,6 +68,7 @@ body{
 	border: 5px solid #003366;
 	color:red;
 	font-weight: bold;
+	transition: 0.1s;
 
 }
 #stats1:hover{
@@ -77,4 +85,23 @@ body{
 }
 #stats5:hover{
 	color: #FFC3CE;
+}
+#stats5:hover{
+	color: #FFC3CE;
+}
+#Positivity{
+	text-align: center;
+	font-family: cursive;
+	font-stretch: ultra-expanded;
+	font-weight: bold;
+	font-size: 1.5em;
+	color: #008080;
+}
+#head{
+	color:#660000;
+	text-align: center;
+	font-family: cursive;
+	font-stretch: ultra-expanded;
+	font-size: 4em;
+	
 }
