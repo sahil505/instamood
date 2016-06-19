@@ -103,5 +103,15 @@ h1{
 	font-family: cursive;
 	font-stretch: ultra-expanded;
 	font-size: 4em;
+	margin-left: 320px;
 	
+}
+/*#image-1{
+	color: green;
+}*/
+#score{
+	color: #008080;
+	margin-top: 40px;
+	font-weight: bold;
+	font-size: 25px;
 }

@@ -66,29 +66,34 @@ function handleResponse(response) {
  var average_caption_length = total_caption_length/response.data.length;
  var average_hashTags = total_hashTags/response.data.length;
 
- $("#stats1").html("Ego Score : " + percentage);
- $("#stats2").html("Popularity : " + average_likes);
- $("#stats3").html("Active Day : " + daySet[daymode]);
- $("#stats4").html("Brevity : " + average_caption_length);
- $("#stats5").html("Visibility : " + average_hashTags);
- for (var i=0; i<response.data.length; i++) {
-   $("#images").append("<div id=image-"+ i +">" + '<img src=' + response.data[i].images.standard_resolution.url + "></div>");
-   $("#images").append("<div></div>",'<br>');
-   $("#image-"+i).append("<div>" + response.data[i].caption.text + "</div>");
-   $("#images").append("<div></div>",'<br>');
-   $("#images").append("<div></div>",'<br>');
-   $.ajax({
+ function getSentiments(caption, i){
+  $.ajax({
       method: "GET",
-      url:"https://twinword-sentiment-analysis.p.mashape.com/analyze/?text=" + response.data[i].caption.text,
+      url:"https://twinword-sentiment-analysis.p.mashape.com/analyze/?text=" + caption,
       headers:{"X-Mashape-Key": "PZhVoSU58ZmshQLuImiWrQy04U3Rp1DYjXDjsnkodgl0Yg6Pwp",
       "Accept": "application/json",
     },
     success: function (result) {
       console.log(result);
       console.log(result.score);
-      $("#stats6").append("<div>" +"->  "+ result.score + "</div>");
+      $("#image-" + i).append("<div id='score'>" +"Positivity Score :  "+ result.score + "</div>");
       }
   });
+ }
+
+ $("#stats1").html("Ego Score : " + percentage);
+ $("#stats2").html("Popularity : " + average_likes);
+ $("#stats3").html("Active Day : " + daySet[daymode]);
+ $("#stats4").html("Brevity : " + average_caption_length);
+ $("#stats5").html("Visibility : " + average_hashTags);
+ for (var i=0; i<response.data.length; i++) {
+   $("#images").append("<div id='image-"+ i +"'>" + '<img src=' + response.data[i].images.standard_resolution.url + "></div>");
+   $("#images").append("<div></div>",'<br>');
+   $("#image-"+i).append("<div>" + response.data[i].caption.text + "</div>");
+   $("#images").append("<div></div>",'<br>');
+   $("#images").append("<div></div>",'<br>');
+   getSentiments(response.data[i].caption.text, i);
+   
  }
 }
 
