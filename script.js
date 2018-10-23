@@ -93,8 +93,6 @@ function handleResponse(response) {
    $("#images").append("<div></div>",'<br>');
    $("#images").append("<div></div>",'<br>');
    getSentiments(response.data[i].caption.text, i);
-   
+
  }
 }
-
-
