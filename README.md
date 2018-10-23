@@ -1,8 +1,8 @@
-#Instamood
+# Instamood
 
 **Instagram Reimagined : Sentiment Analysis of Captions**
 
-##Features
+## Features
 - Displays users Instagram images along with captions
 - Ego Score: % of own pictures user liked
 - Popularity: Average number of likes per picture
